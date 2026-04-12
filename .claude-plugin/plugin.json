@@ -1,0 +1,19 @@
+{
+  "name": "peach-wiki",
+  "version": "0.1.0",
+  "description": "Karpathy LLM Wiki 패턴 기반 지식 관리 — 코드와 노트를 Raw Source로 삼아 docs/wiki/에 누적형 지식베이스 구축",
+  "author": {
+    "name": "PeachSolution"
+  },
+  "repository": "https://github.com/peachSolution/peach-wiki",
+  "license": "MIT",
+  "keywords": [
+    "wiki",
+    "llm-wiki",
+    "karpathy",
+    "knowledge-base",
+    "qmd",
+    "obsidian",
+    "para"
+  ]
+}

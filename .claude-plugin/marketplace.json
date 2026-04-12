@@ -1,0 +1,15 @@
+{
+  "name": "peach-wiki",
+  "owner": {
+    "name": "PeachSolution",
+    "url": "https://github.com/peachSolution"
+  },
+  "plugins": [
+    {
+      "name": "peach-wiki",
+      "source": "./",
+      "description": "Karpathy LLM Wiki 패턴 기반 지식 관리 플러그인 — 코드 프로젝트와 Obsidian PARA 노트를 Raw Source로 삼아 docs/wiki/에 누적형 지식베이스를 구축",
+      "version": "0.1.0"
+    }
+  ]
+}

@@ -15,6 +15,15 @@ wiki는 쓸수록 깊어지는 **복리형 지식 자산**입니다.
 
 ## 설치
 
+### 권장 설치 조합
+
+- **Claude Code만 사용**: Claude Code 플러그인 방식 설치를 권장한다.
+- **Claude Code + 다른 AI 함께 사용**: Claude Code는 플러그인으로 설치하고, Codex / Cursor / Gemini / Antigravity 등 다른 AI에는 `skills.sh`로 별도 설치한다.
+- **비-Claude AI만 사용**: `skills.sh`로 설치한다.
+
+> **중요**: Claude Code 플러그인으로 설치한 내용은 Cursor, Codex, Gemini 등 다른 AI가 직접 로드하지 못한다.
+> 다른 AI에서도 사용하려면 해당 AI 대상에 `skills.sh` 방식으로 별도 설치해야 한다.
+
 ### Claude Code 플러그인 (권장)
 
 ```bash
@@ -25,11 +34,33 @@ wiki는 쓸수록 깊어지는 **복리형 지식 자산**입니다.
 /plugin install peach-wiki
 ```
 
-### skills.sh (Codex, Cursor, Gemini 등)
+### skills.sh 설치 (비-Claude AI 권장 / Claude에서는 대안)
+
+SKILL.md 오픈 스탠다드 기반으로 Claude Code, Cursor, Codex CLI, Antigravity, Copilot, Gemini CLI 등을 지원한다.
 
 ```bash
+# Codex 글로벌 설치
 npx skills add peachSolution/peach-wiki --skill '*' -a codex -g
+
+# Cursor 프로젝트 스코프 설치
+npx skills add peachSolution/peach-wiki --skill '*' -a cursor
+
+# 여러 AI 동시 글로벌 설치
+npx skills add peachSolution/peach-wiki --skill '*' \
+  -a codex \
+  -a cursor \
+  -a gemini-cli \
+  -a antigravity \
+  -g
 ```
+
+> **`-g` 옵션**: `-g` 없이 실행하면 현재 디렉터리 기준 project 스코프에만 설치됩니다.
+> 모든 프로젝트에서 스킬을 공유하려면 `-g` (global)를 사용하세요.
+
+### 업데이트
+
+- `/plugin` → Installed 탭 → peach-wiki 선택 → Update
+- "Enable auto update" 설정 시 Claude Code 실행마다 자동 최신화
 
 ## 사용
 

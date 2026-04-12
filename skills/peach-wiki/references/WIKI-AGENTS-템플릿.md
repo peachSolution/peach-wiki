@@ -54,9 +54,9 @@
 
 ## 치환 변수
 
-| 변수 | code 모드 | para 모드 |
+| 변수 | code 모드 | 옵시디언 모드 |
 |------|----------|----------|
-| `{프로젝트명}` | 프로젝트 디렉토리명 | PARA |
+| `{프로젝트명}` | 프로젝트 디렉토리명 | 옵시디언 |
 | `{raw_source_paths}` | `api/`, `front/`, `docs/` 등 | `0-Inbox/`, `1-Project/`, `2-Area/`, `3-Resource/`, `4-Archive/` |
 | `{컬렉션명}` | qmd 컬렉션명 | `para` |
 | `{drift_status}` | `.git 있음 — 활성` | `.git 없음 — 비활성` |

@@ -1,6 +1,7 @@
 # INIT Runbook
 
-> INIT 오퍼레이션의 preflight, qmd 등록, 마이그레이션, 실패 복구 상세 절차.
+> INIT 오퍼레이션의 preflight, qmd 등록, 신규 생성 흐름을 정리한 문서.
+> 기본 경로는 항상 `docs/wiki/`이며, `.wiki/`와 `5-Wiki/`는 레거시 호환 마이그레이션 대상으로만 취급한다.
 
 ---
 
@@ -15,7 +16,7 @@ ls -d .git 2>/dev/null && echo "GIT=true" || echo "GIT=false"
 
 | .obsidian | .git | 모드 | DRIFT |
 |-----------|------|------|-------|
-| true | false | para | 비활성 |
+| true | false | 옵시디언 | 비활성 |
 | false | true | code | 활성 |
 | true | true | code | 활성 |
 | false | false | 일반 | 비활성 |
@@ -47,7 +48,7 @@ ls -d 5-Wiki 2>/dev/null && echo "5-Wiki/ 발견 → 마이그레이션 필요"
 ```
 
 - `docs/wiki/WIKI-AGENTS.md` 존재 → INIT 중단 ("이미 초기화됨" 안내)
-- `.wiki/` 또는 `5-Wiki/` 발견 → §3 마이그레이션
+- `.wiki/` 또는 `5-Wiki/` 발견 → 레거시 호환이 필요한 경우에만 §3 마이그레이션
 - 아무것도 없음 → §4 신규 생성
 
 ---
@@ -61,10 +62,10 @@ qmd context add qmd://프로젝트명/ "프로젝트 한 줄 설명"
 qmd update && qmd embed
 ```
 
-### para 모드
+### 옵시디언 모드
 ```bash
 qmd collection add . --name para --mask "**/*.md"
-qmd context add qmd://para/ "PARA 기반 Obsidian 노트"
+qmd context add qmd://para/ "옵시디언 노트 컬렉션"
 qmd update && qmd embed
 ```
 
@@ -75,7 +76,10 @@ qmd update && qmd embed
 
 ---
 
-## 3. 마이그레이션
+## 3. 레거시 마이그레이션
+
+이 섹션은 과거 POC 구조를 흡수해야 할 때만 쓴다.
+현재 `peach-wiki`의 기본 흐름은 **신규 생성 또는 기존 `docs/wiki/` 재사용**이다.
 
 ### .wiki/ → docs/wiki/
 
@@ -113,7 +117,7 @@ mv 5-Wiki 5-Wiki.bak
 mkdir -p docs/wiki/{concepts,entities,synthesis,sources,diagrams}
 ```
 
-→ `references/wiki-agents-template.md` 기반 WIKI-AGENTS.md 생성
+→ `references/WIKI-AGENTS-템플릿.md` 기반 WIKI-AGENTS.md 생성
 → wiki-index.md 초기화
 → wiki-log.md 초기화
 → entities/project-overview.md 생성

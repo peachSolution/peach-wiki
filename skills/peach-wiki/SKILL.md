@@ -1,7 +1,7 @@
 ---
 name: peach-wiki
 description: |
-  Karpathy LLM Wiki 패턴 기반 지식 관리 스킬. 코드 프로젝트와 Obsidian PARA 노트 모두 지원.
+  Karpathy LLM Wiki 패턴 기반 지식 관리 스킬. 코드 프로젝트와 옵시디언 노트 모두 지원.
   Raw Source(코드·문서)를 읽어 docs/wiki/에 누적형 지식베이스를 구축·유지한다.
   "wiki", "위키", "ingest", "인제스트", "wiki 점검", "wiki lint", "wiki 업데이트",
   "문서화해줘", "아키텍처 설명해줘", "어떻게 동작해?" 키워드로 트리거.
@@ -11,7 +11,7 @@ description: |
 # peach-wiki — LLM Wiki 지식 관리
 
 Andrej Karpathy의 LLM Wiki 패턴을 적용한 단일 스킬.
-코드 프로젝트와 Obsidian PARA 노트 모두 동일한 구조(`docs/wiki/`)로 관리한다.
+코드 프로젝트와 옵시디언 노트 모두 동일한 구조(`docs/wiki/`)로 관리한다.
 
 ---
 
@@ -20,7 +20,7 @@ Andrej Karpathy의 LLM Wiki 패턴을 적용한 단일 스킬.
 스킬 호출 시 현재 디렉토리를 감지하여 모드를 결정한다.
 
 ```
-.obsidian 존재 → para 모드 (DRIFT 없음)
+.obsidian 존재 → 옵시디언 모드 (DRIFT 없음)
 .git 존재      → code 모드 (DRIFT 활성)
 둘 다 존재     → code 모드 우선
 둘 다 없음     → 일반 모드 (DRIFT 없음, wiki는 정상 동작)
@@ -37,7 +37,7 @@ ls -d .git 2>/dev/null && echo "GIT=true" || echo "GIT=false"
 ## wiki 저장 위치 (모든 프로젝트 동일)
 
 ```
-[프로젝트 루트 or Obsidian PARA]/
+[프로젝트 루트 또는 옵시디언 보관소]/
 └── docs/wiki/
     ├── WIKI-AGENTS.md       ← 운영 규칙 (세션 시작 시 먼저 읽기)
     ├── wiki-index.md        ← 전체 위키 카탈로그
@@ -45,7 +45,7 @@ ls -d .git 2>/dev/null && echo "GIT=true" || echo "GIT=false"
     ├── concepts/            ← 아키텍처 패턴·도메인 개념
     ├── entities/            ← 모듈·서비스·컴포넌트·인물·프로젝트
     ├── synthesis/           ← 데이터 흐름·의사결정·트레이드오프
-    ├── sources/             ← 원본 문서 요약 (para 모드)
+    ├── sources/             ← 원본 문서 요약 (옵시디언 모드)
     └── diagrams/            ← Mermaid 다이어그램
 ```
 
@@ -92,7 +92,7 @@ qmd status 2>/dev/null
 # code 모드
 qmd collection add . --name 프로젝트명 --mask "**/*.{ts,vue,md,sql,py,go,js}"
 
-# para 모드
+# 옵시디언 모드
 qmd collection add . --name para --mask "**/*.md"
 
 # 인덱싱
@@ -126,7 +126,7 @@ docs/wiki/로 이동합니까? (기존 폴더는 백업 후 이동)
 
 ### 4. docs/wiki/ 생성
 
-→ `references/wiki-agents-template.md` 기반으로 WIKI-AGENTS.md 생성
+→ `references/WIKI-AGENTS-템플릿.md` 기반으로 WIKI-AGENTS.md 생성
 → wiki-index.md, wiki-log.md 초기화
 → concepts/, entities/, synthesis/, sources/, diagrams/ 폴더 생성
 
@@ -288,7 +288,7 @@ related_files: [직접 연관된 파일] # code 모드
 
 ## 핵심 원칙
 
-- **Raw Source는 절대 수정 금지** — 읽기만 (코드, PARA 노트 모두)
+- **Raw Source는 절대 수정 금지** — 읽기만 (코드, 옵시디언 노트 모두)
 - **`docs/wiki/` 하위에만 쓰기** — LLM 전용 공간
 - **qmd 1순위**: 설치되어 있으면 항상 qmd query로 먼저 검색 (토큰 절약)
 - **복리 효과**: Ingest할수록 교차참조가 깊어지고 Query 품질이 높아짐

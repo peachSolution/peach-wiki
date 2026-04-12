@@ -2,7 +2,7 @@
 
 Andrej Karpathy의 [LLM Wiki 패턴](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)을 적용한 Claude Code 플러그인.
 
-코드 프로젝트와 Obsidian PARA 노트를 Raw Source로 삼아 `docs/wiki/`에 **누적형 지식베이스**를 구축합니다.
+코드 프로젝트와 옵시디언 노트를 Raw Source로 삼아 `docs/wiki/`에 **누적형 지식베이스**를 구축합니다.
 
 ## 핵심 개념
 
@@ -12,6 +12,8 @@ LLM Wiki: 소스 → 위키 업데이트 → 질문 → 위키 기반 답변 →
 ```
 
 wiki는 쓸수록 깊어지는 **복리형 지식 자산**입니다.
+
+배경 이론과 설계 해설은 [docs/01-문서-안내.md](docs/01-문서-안내.md)에서 정리합니다.
 
 ## 설치
 
@@ -70,7 +72,7 @@ npx skills add peachSolution/peach-wiki --skill '*' \
 
 # 자동 감지:
 # .git 있음 → code 모드 (DRIFT 활성)
-# .obsidian 있음 → para 모드
+# .obsidian 있음 → 옵시디언 모드
 ```
 
 ### 오퍼레이션
@@ -104,6 +106,8 @@ docs/wiki/
 ```bash
 npm install -g @tobilu/qmd
 ```
+
+설계 배경과 qmd 활용 맥락은 [docs/04-qmd-설치-활용-가이드.md](docs/04-qmd-설치-활용-가이드.md)에서 다룹니다.
 
 ## 라이선스
 

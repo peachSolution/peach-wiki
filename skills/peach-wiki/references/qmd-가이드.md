@@ -22,7 +22,7 @@ qmd --version
 # 코드 프로젝트
 qmd collection add . --name 프로젝트명 --mask "**/*.{ts,vue,md,sql,py,go,js}"
 
-# Obsidian PARA
+# 옵시디언 노트
 qmd collection add . --name para --mask "**/*.md"
 
 # 컨텍스트 설명 추가 (검색 품질 핵심)

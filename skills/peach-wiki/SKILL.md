@@ -174,11 +174,16 @@ docs/wiki/로 이동합니까? (기존 폴더는 백업 후 이동)
 
 4. **concepts/ 업데이트** — 아키텍처 패턴, 도메인 개념 반영
 
-5. **diagrams/ 생성** (필요 시) — Mermaid로 흐름 시각화
+5. **related_files 경로 검증** (code 모드):
+   - qmd URI와 실제 파일 경로가 다를 수 있음 (하이픈 vs dot 등)
+   - related_files에 넣기 전 `ls` 또는 `Glob`으로 실제 존재 확인
+   - 존재하지 않는 경로는 제외하거나 정확한 경로로 수정
 
-6. **wiki-index.md 갱신** + **wiki-log.md 기록**
+6. **diagrams/ 생성** (필요 시) — Mermaid로 흐름 시각화
 
-7. **qmd 반영** (qmd 설치 시):
+7. **wiki-index.md 갱신** + **wiki-log.md 기록**
+
+8. **qmd 반영** (qmd 설치 시):
    - 새 파일 추가·이동·대량수정: `qmd update && qmd embed`
    - 소규모 수정: `qmd update`
    - 변경 없으면 실행하지 않음

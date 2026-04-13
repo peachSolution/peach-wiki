@@ -25,8 +25,12 @@ wiki는 쓸수록 깊어지는 **복리형 지식 자산**입니다.
 
 > **중요**: Claude Code 플러그인으로 설치한 내용은 Cursor, Codex, Gemini 등 다른 AI가 직접 로드하지 못한다.
 > 다른 AI에서도 사용하려면 해당 AI 대상에 `skills.sh` 방식으로 별도 설치해야 한다.
+> 기본 권장 시나리오는 "Claude는 플러그인, 나머지는 `skills.sh`"이다.
 
 ### Claude Code 플러그인 (권장)
+
+Claude Code에서는 플러그인 방식 설치를 기본 권장한다.
+`agents/`, `hooks/`를 포함한 Claude Code 전용 구성을 함께 사용할 수 있다.
 
 ```bash
 # 1. 마켓플레이스 등록
@@ -38,31 +42,69 @@ wiki는 쓸수록 깊어지는 **복리형 지식 자산**입니다.
 
 ### skills.sh 설치 (비-Claude AI 권장 / Claude에서는 대안)
 
-SKILL.md 오픈 스탠다드 기반으로 Claude Code, Cursor, Codex CLI, Antigravity, Copilot, Gemini CLI 등을 지원한다.
+SKILL.md 오픈 스탠다드 기반으로 Cursor, Codex CLI, Antigravity, Copilot, Gemini CLI 등을 지원한다.
+
+> **권고**: `-g` (global) 옵션을 사용하면 모든 프로젝트에서 스킬을 공유할 수 있다.
+> `-g` 없이 실행하면 현재 디렉터리 기준의 project 스코프에만 설치된다.
 
 ```bash
 # Codex 글로벌 설치
-npx skills add peachSolution/peach-wiki --skill '*' -a codex -g
-
-# Cursor 프로젝트 스코프 설치
-npx skills add peachSolution/peach-wiki --skill '*' -a cursor
+npx skills add peachSolution/peach-wiki -a codex -g
 
 # 여러 AI 동시 글로벌 설치
-npx skills add peachSolution/peach-wiki --skill '*' \
+npx skills add peachSolution/peach-wiki \
   -a codex \
   -a cursor \
   -a gemini-cli \
   -a antigravity \
   -g
+
+# 프로젝트 스코프 설치 (현재 디렉터리에만 적용)
+npx skills add peachSolution/peach-wiki -a cursor
 ```
 
-> **`-g` 옵션**: `-g` 없이 실행하면 현재 디렉터리 기준 project 스코프에만 설치됩니다.
-> 모든 프로젝트에서 스킬을 공유하려면 `-g` (global)를 사용하세요.
+> **`--skill '*'` 비권장**: `--skill '*'`은 내부 전용 스킬(`metadata.internal: true`)까지 포함한다.
+> `--skill` 옵션 없이 실행하면 배포용 스킬만 자동 설치된다.
+
+**지원 에이전트 ID**
+
+| AI 도구 | 에이전트 ID |
+|--------|-----------|
+| Claude Code | `claude-code` |
+| OpenAI Codex CLI | `codex` |
+| Cursor / Cursor CLI | `cursor` |
+| Gemini CLI | `gemini-cli` |
+| Google Antigravity | `antigravity` |
+| GitHub Copilot | `github-copilot` |
+| Windsurf | `windsurf` |
+| Roo Code | `roo` |
 
 ### 업데이트
 
+**Claude Code 플러그인:**
 - `/plugin` → Installed 탭 → peach-wiki 선택 → Update
 - "Enable auto update" 설정 시 Claude Code 실행마다 자동 최신화
+
+**skills.sh:**
+
+```bash
+# 업데이트 확인
+npx skills check -g
+
+# 재설치로 업데이트 (권장 — 글로벌)
+npx skills add peachSolution/peach-wiki -a codex -g -y
+
+# 여러 AI 도구 동시 업데이트
+npx skills add peachSolution/peach-wiki \
+  -a codex \
+  -a cursor \
+  -a gemini-cli \
+  -a antigravity \
+  -g -y
+```
+
+> **`npx skills update` 비권장**: 새로 추가된 스킬이 설치되지 않는 버그가 있다.
+> `npx skills add ... -g -y` 재설치를 사용한다.
 
 ## 사용
 

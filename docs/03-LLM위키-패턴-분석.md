@@ -1,7 +1,7 @@
 # LLM Wiki 패턴 분석
 
 > 원문을 `peach-wiki` 관점에서 구조화한 해설 문서다.
-> 관련 문서: [LLM Wiki 원문](02-LLM위키-원문.md), [qmd 가이드](04-qmd-설치-활용-가이드.md), [종합 분석](05-qmd와-LLM위키-종합분석.md)
+> 관련 문서: [LLM Wiki 원문](02-LLM위키-원문.md), [시스템 구성도](06-LLM위키-시스템-구성도.md), [qmd 가이드](04-qmd-설치-활용-가이드.md), [종합 분석](05-qmd와-LLM위키-종합분석.md)
 > 출처: `wikiSystem` POC에서 이관 후 `peach-wiki` 기준으로 재정리
 
 ## 핵심 통찰

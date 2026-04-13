@@ -4,6 +4,9 @@ description: |
   peach-wiki 버전 업데이트 → CHANGELOG.md 자동 생성 → develop 커밋/푸시 → main PR 생성 → PR 머지 → GitHub Release 생성까지 일괄 처리하는 릴리스 스킬.
   변경 내용 분석 후 사용자가 major/minor/patch를 직접 선택. 승인 1회 후 일괄 실행.
   "릴리스", "버전 업", "release", "main 머지", "배포 준비" 키워드로 트리거.
+  peach-wiki 저장소에서만 사용한다.
+metadata:
+  internal: true
 allowed-tools:
   - Bash
   - Read

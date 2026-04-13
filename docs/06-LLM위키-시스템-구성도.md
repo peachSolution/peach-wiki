@@ -1,6 +1,6 @@
 # LLM Wiki 시스템 구성도
 
-> `wikiSystem` POC의 구조 도식 문서를 바탕으로, 현재 `peach-wiki` 최종 구조에 맞춰 다시 정리한 설명 문서다.
+> 초기 구조 설명 문서를 바탕으로, 현재 `peach-wiki` 최종 구조에 맞춰 다시 정리한 설명 문서다.
 > 관련 문서: [패턴 분석](03-LLM위키-패턴-분석.md), [qmd 가이드](04-qmd-설치-활용-가이드.md), [종합 분석](05-qmd와-LLM위키-종합분석.md)
 
 ## 30초 요약
@@ -97,7 +97,7 @@ flowchart LR
 - LLM Wiki는 `INGEST`와 `QUERY` 모두 위키를 강화한다.
 - 이 누적성이 `peach-wiki`의 핵심 차별점이다.
 
-## 무엇이 `wikiSystem`과 달라졌나
+## 무엇이 이전 실험 구조와 달라졌나
 
 - `5-Wiki`, `.wiki/` 같은 과거 저장 위치 설명을 제거했다.
 - `wiki-para`, `wiki-code` 이원화 대신 단일 `peach-wiki` 기준으로 통합했다.

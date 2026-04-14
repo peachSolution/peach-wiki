@@ -3,6 +3,17 @@
 > [keep-a-changelog](https://keepachangelog.com) 포맷을 따릅니다.
 > 버전은 [Semantic Versioning](https://semver.org)을 따릅니다.
 
+## [v0.1.3] - 2026-04-14
+
+### Changed
+- qmd `--index` 분리 운영 패턴 전면 적용 (SKILL.md INIT/INGEST/QUERY/DRIFT 전 오퍼레이션)
+- qmd-가이드.md에 Named Index 분리 운영 섹션 신규 추가 (DB/설정 격리 원리, CloudStorage 주의사항, MCP 연동 주의)
+- AGENTS.md 삽입 템플릿에 qmd 인덱스 섹션 및 치환 지시 추가
+- 문서 출처 표현 현재 기준으로 정리, 시스템 구성도 설명 보강
+
+### Added
+- `docs/스킬피드백/`: qmd 전체 컬렉션 오염 이슈 피드백 및 반영 기록 추가
+
 ## [v0.1.2] - 2026-04-13
 
 ### Added

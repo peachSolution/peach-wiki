@@ -1,8 +1,8 @@
 # LLM Wiki 패턴 분석
 
 > 원문을 `peach-wiki` 관점에서 구조화한 해설 문서다.
-> 관련 문서: [LLM Wiki 원문](02-LLM위키-원문.md), [qmd 가이드](04-qmd-설치-활용-가이드.md), [종합 분석](05-qmd와-LLM위키-종합분석.md)
-> 출처: `wikiSystem` POC에서 이관 후 `peach-wiki` 기준으로 재정리
+> 관련 문서: [LLM Wiki 원문](02-LLM위키-원문.md), [시스템 구성도](06-LLM위키-시스템-구성도.md), [qmd 가이드](04-qmd-설치-활용-가이드.md), [종합 분석](05-qmd와-LLM위키-종합분석.md)
+> 출처: 초기 분석 문서를 `peach-wiki` 기준으로 재정리
 
 ## 핵심 통찰
 
@@ -66,6 +66,6 @@ LLM Wiki: 소스 → 위키 업데이트 → 질문 → 위키 기반 답변 →
 
 ## 구현자가 기억할 포인트
 
-- 이 프로젝트의 최신 기준은 `wikiSystem`이 아니라 `peach-wiki`다.
+- 이 프로젝트의 최신 기준은 `peach-wiki`다.
 - 과거 `.wiki/`, `5-Wiki/`, `wiki-code`는 설계 실험의 흔적일 뿐 정본이 아니다.
 - 배경 이론은 이 문서와 원문에서 보고, 실제 동작 규칙은 `skills/peach-wiki/SKILL.md`를 따른다.

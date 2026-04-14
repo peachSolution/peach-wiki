@@ -1,10 +1,14 @@
 # LLM Wiki 원문
 
 > 원문 문서. `peach-wiki` 설계의 최상위 아이디어 출처다.
-> 관련 해설: [패턴 분석](03-LLM위키-패턴-분석.md), [종합 분석](05-qmd와-LLM위키-종합분석.md)
-> 출처: `wikiSystem` POC에서 이관
+> 관련 해설: [패턴 분석](03-LLM위키-패턴-분석.md), [시스템 구성도](06-LLM위키-시스템-구성도.md), [종합 분석](05-qmd와-LLM위키-종합분석.md)
+> 출처: 초기 분석 문서에서 이관
 
 ---
+
+## 원본 주소
+
+- Andrej Karpathy 원문 Gist: <https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f>
 
 A pattern for building personal knowledge bases using LLMs.
 

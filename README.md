@@ -47,6 +47,8 @@ SKILL.md 오픈 스탠다드 기반으로 Cursor, Codex CLI, Antigravity, Copilo
 > **권고**: `-g` (global) 옵션을 사용하면 모든 프로젝트에서 스킬을 공유할 수 있다.
 > `-g` 없이 실행하면 현재 디렉터리 기준의 project 스코프에만 설치된다.
 
+**macOS / Linux**
+
 ```bash
 # Codex 글로벌 설치
 npx skills add peachSolution/peach-wiki -a codex -g
@@ -57,6 +59,24 @@ npx skills add peachSolution/peach-wiki \
   -a cursor \
   -a gemini-cli \
   -a antigravity \
+  -g
+
+# 프로젝트 스코프 설치 (현재 디렉터리에만 적용)
+npx skills add peachSolution/peach-wiki -a cursor
+```
+
+**Windows PowerShell**
+
+```powershell
+# Codex 글로벌 설치
+npx skills add peachSolution/peach-wiki -a codex -g
+
+# 여러 AI 동시 글로벌 설치
+npx skills add peachSolution/peach-wiki `
+  -a codex `
+  -a cursor `
+  -a gemini-cli `
+  -a antigravity `
   -g
 
 # 프로젝트 스코프 설치 (현재 디렉터리에만 적용)
@@ -87,6 +107,8 @@ npx skills add peachSolution/peach-wiki -a cursor
 
 **skills.sh:**
 
+**macOS / Linux**
+
 ```bash
 # 업데이트 확인
 npx skills check -g
@@ -100,6 +122,24 @@ npx skills add peachSolution/peach-wiki \
   -a cursor \
   -a gemini-cli \
   -a antigravity \
+  -g -y
+```
+
+**Windows PowerShell**
+
+```powershell
+# 업데이트 확인
+npx skills check -g
+
+# 재설치로 업데이트 (권장 — 글로벌)
+npx skills add peachSolution/peach-wiki -a codex -g -y
+
+# 여러 AI 도구 동시 업데이트
+npx skills add peachSolution/peach-wiki `
+  -a codex `
+  -a cursor `
+  -a gemini-cli `
+  -a antigravity `
   -g -y
 ```
 

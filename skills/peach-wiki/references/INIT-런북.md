@@ -24,7 +24,8 @@ ls -d .git 2>/dev/null && echo "GIT=true" || echo "GIT=false"
 ### Step 2: qmd 상태 확인
 
 ```bash
-qmd status 2>/dev/null
+QMD_INDEX=$(basename $(pwd))
+qmd --index "$QMD_INDEX" status 2>/dev/null
 ```
 
 - 성공 → Step 3으로
@@ -33,7 +34,7 @@ qmd status 2>/dev/null
 ### Step 3: qmd 컬렉션 확인
 
 ```bash
-qmd collection list
+qmd --index "$QMD_INDEX" collection list
 ```
 
 - 현재 디렉토리가 등록된 컬렉션에 포함? → 스킵
@@ -57,16 +58,16 @@ ls -d 5-Wiki 2>/dev/null && echo "5-Wiki/ 발견 → 마이그레이션 필요"
 
 ### code 모드
 ```bash
-qmd collection add . --name 프로젝트명 --mask "**/*.{ts,vue,md,sql,py,go,js}"
-qmd context add qmd://프로젝트명/ "프로젝트 한 줄 설명"
-qmd update && qmd embed
+qmd --index "$QMD_INDEX" collection add . --name "$QMD_INDEX" --mask "**/*.{ts,vue,md,sql,py,go,js}"
+qmd --index "$QMD_INDEX" context add "qmd://$QMD_INDEX/" "프로젝트 한 줄 설명"
+qmd --index "$QMD_INDEX" update && qmd --index "$QMD_INDEX" embed
 ```
 
 ### 옵시디언 모드
 ```bash
-qmd collection add . --name para --mask "**/*.md"
-qmd context add qmd://para/ "옵시디언 노트 컬렉션"
-qmd update && qmd embed
+qmd --index "$QMD_INDEX" collection add . --name para --mask "**/*.md"
+qmd --index "$QMD_INDEX" context add "qmd://para/" "옵시디언 노트 컬렉션"
+qmd --index "$QMD_INDEX" update && qmd --index "$QMD_INDEX" embed
 ```
 
 ### 등록 실패 시
@@ -131,7 +132,7 @@ mkdir -p docs/wiki/{concepts,entities,synthesis,sources,diagrams}
 ```markdown
 ## wiki 참조 (필수)
 코드 생성·분석 전 아래 순서를 따른다.
-1. `qmd query "키워드" -c 프로젝트명` 으로 wiki + 소스 통합 검색
+1. `qmd --index 프로젝트명 query "키워드" -c 프로젝트명` 으로 wiki + 소스 통합 검색
 2. qmd 미설치 시 `docs/wiki/wiki-index.md` → 관련 페이지 직접 Read
 3. `docs/wiki/`도 없으면 기존 방식대로 진행
 ```

@@ -1,5 +1,11 @@
 # peach-wiki
 
+> ⚠️ **이 저장소는 [peach-harness v1.17.0](https://github.com/peachSolution/peach-harness/releases/tag/v1.17.0)에 통합되었습니다.**
+> peach-wiki 스킬은 peach-harness에서 계속 유지됩니다.
+> 새 설치는 peach-harness를 사용하세요. 기존 설치 제거 방법은 [마이그레이션 안내](https://github.com/peachSolution/peach-harness#peach-wiki-별도-설치--harness-마이그레이션)를 참고하세요.
+
+---
+
 Andrej Karpathy의 [LLM Wiki 패턴](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)을 적용한 Claude Code 플러그인.
 
 코드 프로젝트와 옵시디언 노트를 Raw Source로 삼아 `docs/wiki/`에 **누적형 지식베이스**를 구축합니다.
